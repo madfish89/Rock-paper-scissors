@@ -7,8 +7,8 @@ const loseSound = new Audio('lose.mp3');
 const bgMusic = new Audio('bg.mp3');
       bgMusic.loop = true;
       bgMusic.volume = 0.6;  
-      loseSound.volume = 0.5;
-      winSound.volume = 0.6;
+      loseSound.volume = 0.4;
+      winSound.volume = 0.55;
 let bgPlaying = false;
 
 const playerArea = document.getElementById('p_choice');
