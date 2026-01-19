@@ -81,7 +81,7 @@ function play(choice) {
         } else {
             outcome = "Computer Wins!";
             bigClass = "lose";
-            
+            loseSound();
             cScore++;
         }
 
