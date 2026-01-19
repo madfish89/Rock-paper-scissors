@@ -4,6 +4,10 @@ const scissorsBtn = document.getElementById('scissors');
 const buttons = document.querySelectorAll('button');
 const winSound = new Audio('win.mp3');
 const loseSound = new Audio('lose.mp3');
+const bgMusic = new Audio('bg.mp3');
+      bgMusic.loop = true;
+      bgMusic.volume = 0.5;  
+let bgPlaying = false;
 
 const playerArea = document.getElementById('p_choice');
 const computerArea = document.getElementById('c_choice');
@@ -22,16 +26,20 @@ paperBtn.addEventListener('click', () => play('paper'));
 scissorsBtn.addEventListener('click', () => play('scissors'));
 
 function playWin() {
-  winSound.currentTime = 0;  
-  winSound.play().catch(error => console.log('Win sound failed:', error));
+    winSound.currentTime = 0;
+    winSound.play().catch(error => console.log('Win sound failed:', error));
 }
 function playLose() {
-  loseSound.currentTime = 0;
-  loseSound.play().catch(error => console.log('Lose sound failed:', error));
+    loseSound.currentTime = 0;
+    loseSound.play().catch(error => console.log('Lose sound failed:', error));
 }
 
 function play(choice) {
     disableButtons();
+    if (!bgPlaying) {
+        bgMusic.play().catch(e => console.log('BG failed:', e));
+        bgPlaying = true;
+    }
     playerArea.innerHTML = "";
     computerArea.innerHTML = "";
 
@@ -79,12 +87,12 @@ function play(choice) {
             playWin();
             pScore++;
         }
-         else {
+        else {
             outcome = "Computer Wins!";
             bigClass = "lose";
             cScore++;
         }
-        if (bigClass == "lose"){
+        if (bigClass == "lose") {
             playLose();
         }
 
