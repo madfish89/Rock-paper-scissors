@@ -2,6 +2,7 @@ const rockBtn = document.getElementById('rock');
 const paperBtn = document.getElementById('paper');
 const scissorsBtn = document.getElementById('scissors');
 const buttons = document.querySelectorAll('button');
+const winSound = new Audio('win.mp3');
 
 const playerArea = document.getElementById('p_choice');
 const computerArea = document.getElementById('c_choice');
@@ -19,9 +20,14 @@ rockBtn.addEventListener('click', () => play('rock'));
 paperBtn.addEventListener('click', () => play('paper'));
 scissorsBtn.addEventListener('click', () => play('scissors'));
 
+function playWin() {
+  winSound.currentTime = 0;  // Restart if somehow looping
+  winSound.play().catch(error => console.log('Win sound failed:', error));
+}
+
 function play(choice) {
     disableButtons();
-
+    playWin();
     playerArea.innerHTML = "";
     computerArea.innerHTML = "";
 
