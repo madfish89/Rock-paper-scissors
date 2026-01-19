@@ -81,8 +81,10 @@ function play(choice) {
         } else {
             outcome = "Computer Wins!";
             bigClass = "lose";
-            loseSound();
             cScore++;
+        }
+        if (bigClass == "lose"){
+            loseSound();
         }
 
         resultText.textContent = outcome.toUpperCase();
