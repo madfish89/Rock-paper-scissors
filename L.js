@@ -95,7 +95,7 @@ function createConfetti() {
     container.classList.add("confetti-container");
     document.body.appendChild(container);
 
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 110; i++) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
 
