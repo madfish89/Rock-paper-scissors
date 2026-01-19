@@ -78,7 +78,8 @@ function play(choice) {
             bigClass = "win";
             playWin();
             pScore++;
-        } else {
+        }
+         else {
             outcome = "Computer Wins!";
             bigClass = "lose";
             cScore++;
