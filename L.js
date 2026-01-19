@@ -85,7 +85,7 @@ function play(choice) {
             cScore++;
         }
         if (bigClass == "lose"){
-            loseSound();
+            playLose();
         }
 
         resultText.textContent = outcome.toUpperCase();
