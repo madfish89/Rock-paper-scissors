@@ -22,7 +22,7 @@ paperBtn.addEventListener('click', () => play('paper'));
 scissorsBtn.addEventListener('click', () => play('scissors'));
 
 function playWin() {
-  winSound.currentTime = 0;  // Restart if somehow looping
+  winSound.currentTime = 0;  
   winSound.play().catch(error => console.log('Win sound failed:', error));
 }
 function playLose() {
