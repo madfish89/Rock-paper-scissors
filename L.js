@@ -3,6 +3,7 @@ const paperBtn = document.getElementById('paper');
 const scissorsBtn = document.getElementById('scissors');
 const buttons = document.querySelectorAll('button');
 const winSound = new Audio('win.mp3');
+const loseSound = new Audio('lose.mp3');
 
 const playerArea = document.getElementById('p_choice');
 const computerArea = document.getElementById('c_choice');
@@ -24,10 +25,13 @@ function playWin() {
   winSound.currentTime = 0;  // Restart if somehow looping
   winSound.play().catch(error => console.log('Win sound failed:', error));
 }
+function playLose() {
+  loseSound.currentTime = 0;
+  loseSound.play().catch(error => console.log('Lose sound failed:', error));
+}
 
 function play(choice) {
     disableButtons();
-    playWin();
     playerArea.innerHTML = "";
     computerArea.innerHTML = "";
 
@@ -72,10 +76,12 @@ function play(choice) {
         ) {
             outcome = "You Win!";
             bigClass = "win";
+            playWin();
             pScore++;
         } else {
             outcome = "Computer Wins!";
             bigClass = "lose";
+            
             cScore++;
         }
 
